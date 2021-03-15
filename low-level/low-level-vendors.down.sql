@@ -1,3 +1,4 @@
-SET @GUID = 3200000; -- 2 vendors
+SET @GUID = 3200000;
+SET @TOTAL = 6;
 
-DELETE FROM `creature` WHERE `guid` IN (@GUID, @GUID + 1);
+DELETE FROM `creature` WHERE `guid` BETWEEN @GUID AND @GUID + @TOTAL;
