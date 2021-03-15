@@ -1,6 +1,7 @@
-SET @GUID = 3200000; -- 6 vendors
+SET @GUID = 3200000;
+SET @TOTAL = 6;
 
-DELETE FROM `creature` WHERE `guid` IN (@GUID, @GUID + 1);
+DELETE FROM `creature` WHERE `guid` BETWEEN @GUID AND (@GUID + @TOTAL - 1);
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`)
 VALUES
 (@GUID + 0, 14753, 0, 0, 0, 1, 1, 0, 1, -8764.57, 413.922, 103.919, 3.17492, 300, 0, 0, 52280, 0, 0, 0, 0, 0, '', 0),
